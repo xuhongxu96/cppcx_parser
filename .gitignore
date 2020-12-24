@@ -342,3 +342,4 @@ healthchecksdb
 # Antlr
 *.interp
 *.tokens
+.antlr

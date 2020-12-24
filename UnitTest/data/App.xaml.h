@@ -17,6 +17,9 @@ namespace Calculator::App
     {
         extern Platform::StringReference AppMinWindowHeight;
         extern Platform::StringReference AppMinWindowWidth;
+
+        void f();
+        void g(int a);
     }
 
     /// <summary>

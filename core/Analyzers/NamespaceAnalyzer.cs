@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
 using cppcx.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,12 @@ namespace cppcx.Core.Analyzers
         public NamespaceAnalyzer()
         {
             _current = Root;
+        }
+
+        public Namespace Visit(CPPCXParser.TranslationUnitContext tu)
+        {
+            ParseTreeWalker.Default.Walk(this, tu);
+            return Root;
         }
 
         public override void EnterNamespaceDefinition([NotNull] CPPCXParser.NamespaceDefinitionContext context)

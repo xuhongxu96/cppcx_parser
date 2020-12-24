@@ -277,6 +277,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTranslationUnit(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTranslationUnit(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -343,6 +349,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPrimaryExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimaryExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -453,6 +465,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitIdExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -524,6 +542,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitUnqualifiedId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnqualifiedId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -629,6 +653,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitQualifiedId(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitQualifiedId(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -696,6 +726,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNestedNameSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNestedNameSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -822,6 +858,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLambdaExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLambdaExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -876,6 +918,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLambdaIntroducer(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLambdaIntroducer(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -933,6 +981,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLambdaCapture(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLambdaCapture(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -998,6 +1052,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCaptureDefault(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaptureDefault(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1056,6 +1116,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCaptureList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaptureList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1126,6 +1192,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCapture(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCapture(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1179,6 +1251,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitSimpleCapture(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSimpleCapture(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1249,6 +1327,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitcapture(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitcapture(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1313,6 +1397,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLambdaDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLambdaDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1447,6 +1537,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPostfixExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPostfixExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1780,6 +1876,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeIdOfTheTypeId(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeIdOfTheTypeId(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1821,6 +1923,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExpressionList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1878,6 +1986,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPseudoDestructorName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPseudoDestructorName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1991,6 +2105,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitUnaryExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnaryExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2136,6 +2256,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitUnaryOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnaryOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2200,6 +2326,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNewExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2331,6 +2463,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNewPlacement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewPlacement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2377,6 +2515,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNewTypeId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewTypeId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2434,6 +2578,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNewDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2516,6 +2666,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoPointerNewDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoPointerNewDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2620,6 +2776,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNewInitializer(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewInitializer(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2691,6 +2853,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeleteExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeleteExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2757,6 +2925,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoExceptExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoExceptExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2809,6 +2983,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCastExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCastExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2877,6 +3057,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPointerMemberExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPointerMemberExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2958,6 +3144,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMultiplicativeExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMultiplicativeExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3034,6 +3226,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAdditiveExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAdditiveExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3108,6 +3306,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitShiftExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShiftExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3171,6 +3375,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitShiftOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShiftOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3248,6 +3458,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitRelationalExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRelationalExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3328,6 +3544,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEqualityExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEqualityExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3400,6 +3622,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAndExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAndExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3463,6 +3691,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExclusiveOrExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExclusiveOrExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3528,6 +3762,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInclusiveOrExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInclusiveOrExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3591,6 +3831,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLogicalAndExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogicalAndExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3656,6 +3902,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLogicalOrExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogicalOrExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3720,6 +3972,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConditionalExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConditionalExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3787,6 +4045,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAssignmentExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3858,6 +4122,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAssignmentOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3916,6 +4186,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3983,6 +4259,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConstantExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstantExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4048,6 +4330,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4220,6 +4508,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLabeledStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLabeledStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4296,6 +4590,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExpressionStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4349,6 +4649,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCompoundStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCompoundStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4405,6 +4711,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitStatementSeq(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatementSeq(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4471,6 +4783,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitSelectionStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectionStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4561,6 +4879,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCondition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCondition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4664,6 +4988,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitIterationStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIterationStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4779,6 +5109,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitForInitStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForInitStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4839,6 +5175,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitForRangeDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForRangeDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4893,6 +5235,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitForRangeInitializer(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForRangeInitializer(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5008,6 +5356,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitJumpStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitJumpStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5146,6 +5500,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclarationStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclarationStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5190,6 +5550,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclarationseq(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclarationseq(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5269,6 +5635,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5387,6 +5759,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBlockDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBlockDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5484,6 +5862,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAliasDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAliasDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5546,6 +5930,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitSimpleDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSimpleDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5637,6 +6027,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitStaticAssertDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStaticAssertDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5683,6 +6079,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEmptyDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEmptyDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5725,6 +6127,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5777,6 +6185,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5899,6 +6313,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclSpecifierSeq(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclSpecifierSeq(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5971,6 +6391,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitStorageClassSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStorageClassSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6022,6 +6448,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitFunctionSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6071,6 +6503,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypedefName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypedefName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6118,6 +6556,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6187,6 +6631,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTrailingTypeSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTrailingTypeSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6282,6 +6732,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeSpecifierSeq(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeSpecifierSeq(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6357,6 +6813,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTrailingTypeSpecifierSeq(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTrailingTypeSpecifierSeq(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6451,6 +6913,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitSimpleTypeSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSimpleTypeSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6616,6 +7084,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTheTypeName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTheTypeName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6686,6 +7160,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDecltypeSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecltypeSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6755,6 +7235,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitElaboratedTypeSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitElaboratedTypeSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6870,6 +7356,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6917,6 +7409,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6990,6 +7488,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumHead(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumHead(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7078,6 +7582,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitOpaqueEnumDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOpaqueEnumDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7143,6 +7653,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumkey(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumkey(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7214,6 +7730,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumbase(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumbase(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7263,6 +7785,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumeratorList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumeratorList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7327,6 +7855,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumeratorDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumeratorDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7378,6 +7912,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitEnumerator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumerator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7417,6 +7957,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNamespaceName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNamespaceName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7462,6 +8008,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitQualifiednamespacespecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitQualifiednamespacespecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7521,6 +8073,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNamespaceDefinition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNamespaceDefinition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7598,6 +8156,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNamespaceAliasDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNamespaceAliasDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7650,6 +8214,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitUsingDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUsingDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7730,6 +8300,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitUsingDirective(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUsingDirective(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7796,6 +8372,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAsmDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAsmDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7848,6 +8430,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLinkageSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLinkageSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7978,6 +8566,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeSpecifierSeq(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeSpecifierSeq(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8049,6 +8643,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8126,6 +8726,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAlignmentspecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlignmentspecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8202,6 +8808,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8273,6 +8885,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttribute(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttribute(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8333,6 +8951,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeNamespace(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeNamespace(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8376,6 +9000,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAttributeArgumentClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAttributeArgumentClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8432,6 +9062,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBalancedTokenSeq(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBalancedTokenSeq(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8511,6 +9147,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBalancedtoken(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBalancedtoken(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8764,6 +9406,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitDeclaratorList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitDeclaratorList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8823,6 +9471,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8884,6 +9538,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8950,6 +9610,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPointerDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPointerDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9037,6 +9703,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoPointerDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoPointerDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9193,6 +9865,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitParametersAndQualifiers(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParametersAndQualifiers(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9286,6 +9964,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTrailingReturnType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTrailingReturnType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9347,6 +10031,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPointerOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPointerOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9465,6 +10155,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCvqualifierseq(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCvqualifierseq(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9525,6 +10221,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCvQualifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCvQualifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9575,6 +10277,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitRefqualifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRefqualifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9627,6 +10335,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDeclaratorid(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclaratorid(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9682,6 +10396,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTheTypeId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTheTypeId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9745,6 +10465,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAbstractDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAbstractDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9821,6 +10547,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPointerAbstractDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPointerAbstractDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9925,6 +10657,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoPointerAbstractDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoPointerAbstractDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10079,6 +10817,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAbstractPackDeclarator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAbstractPackDeclarator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10146,6 +10890,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoPointerAbstractPackDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoPointerAbstractPackDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10260,6 +11010,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitParameterDeclarationClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameterDeclarationClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10327,6 +11083,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitParameterDeclarationList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameterDeclarationList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10399,6 +11161,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitParameterDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameterDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10498,6 +11266,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitFunctionDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10572,6 +11346,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPropertyBody(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyBody(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10636,6 +11416,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPropertyDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10692,6 +11478,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitFunctionBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10781,6 +11573,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitializer(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitializer(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10844,6 +11642,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBraceOrEqualInitializer(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBraceOrEqualInitializer(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10903,6 +11707,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitializerClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitializerClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11020,6 +11830,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitInitializerList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitializerList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11101,6 +11917,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBracedInitList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBracedInitList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11163,6 +11985,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11228,6 +12056,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11313,6 +12147,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassHead(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassHead(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11439,6 +12279,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassHeadName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassHeadName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11488,6 +12334,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassVirtSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassVirtSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11542,6 +12394,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitCxAttribute(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCxAttribute(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11585,6 +12443,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassKey(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassKey(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11658,6 +12522,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemberSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11753,6 +12623,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemberdeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberdeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11879,6 +12755,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemberDeclaratorList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberDeclaratorList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11952,6 +12834,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemberDeclarator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberDeclarator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12069,6 +12957,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitVirtualSpecifierSeq(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVirtualSpecifierSeq(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12123,6 +13017,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitVirtualSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVirtualSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12174,6 +13074,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitPureSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPureSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12219,6 +13125,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBaseClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBaseClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12273,6 +13185,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBaseSpecifierList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBaseSpecifierList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12355,6 +13273,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBaseSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBaseSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12459,6 +13383,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitClassOrDeclType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassOrDeclType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12522,6 +13452,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitBaseTypeSpecifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBaseTypeSpecifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12564,6 +13500,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitAccessSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAccessSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12617,6 +13559,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConversionFunctionId(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConversionFunctionId(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12662,6 +13610,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConversionTypeId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConversionTypeId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12717,6 +13671,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConversionDeclarator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConversionDeclarator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12768,6 +13728,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitConstructorInitializer(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstructorInitializer(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12822,6 +13788,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemInitializerList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemInitializerList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12906,6 +13878,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMemInitializer(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemInitializer(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12976,6 +13954,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitMeminitializerid(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMeminitializerid(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13031,6 +14015,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitOperatorFunctionId(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOperatorFunctionId(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13074,6 +14064,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLiteralOperatorId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLiteralOperatorId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13140,6 +14136,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13192,6 +14194,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateparameterList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateparameterList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13252,6 +14260,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13317,6 +14331,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13439,6 +14459,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitSimpleTemplateId(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSimpleTemplateId(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13503,6 +14529,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateId(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateId(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13583,6 +14615,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13635,6 +14673,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateArgumentList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateArgumentList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13717,6 +14761,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTemplateArgument(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateArgument(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13782,6 +14832,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeNameSpecifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeNameSpecifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13852,6 +14908,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExplicitInstantiation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExplicitInstantiation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13908,6 +14970,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExplicitSpecialization(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExplicitSpecialization(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13956,6 +15024,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTryBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTryBlock(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14007,6 +15081,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitFunctionTryBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionTryBlock(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14064,6 +15144,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitHandlerSeq(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitHandlerSeq(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14126,6 +15212,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitHandler(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitHandler(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14181,6 +15273,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExceptionDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExceptionDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14292,6 +15390,12 @@ public partial class CPPCXParser : Parser {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitThrowExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitThrowExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14346,6 +15450,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitExceptionSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExceptionSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14405,6 +15515,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitDynamicExceptionSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDynamicExceptionSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14470,6 +15586,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTypeIdList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeIdList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14548,6 +15670,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitNoeExceptSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNoeExceptSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14648,6 +15776,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitTheOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTheOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14974,6 +16108,12 @@ public partial class CPPCXParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICPPCXParserListener typedListener = listener as ICPPCXParserListener;
 			if (typedListener != null) typedListener.ExitLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICPPCXParserVisitor<TResult> typedVisitor = visitor as ICPPCXParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLiteral(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 

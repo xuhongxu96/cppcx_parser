@@ -13,7 +13,7 @@
         <None Remove="*.tokens" />
     </ItemGroup>
 
-    <Target Name="GenerateParser" BeforeTargets="BeforeBuild">
+    <Target Name="GenerateParser" BeforeTargets="BeforeRebuild">
         <Message Text="Generate Lexer and Parser" Importance="High" />
         <Exec Command="pwsh gen.ps1" />
     </Target>

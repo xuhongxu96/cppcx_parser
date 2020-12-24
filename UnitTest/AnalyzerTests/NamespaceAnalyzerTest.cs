@@ -20,11 +20,11 @@ namespace UnitTest.AnalyzerTests
             var tu = CxParser.Parse(filename);
 
             var analyzer = new NamespaceAnalyzer();
-            ParseTreeWalker.Default.Walk(analyzer, tu);
+            var root = analyzer.Visit(tu);
 
             foreach (var ns in namespaces)
             {
-                var current = analyzer.Root;
+                var current = root;
                 var nsParts = ns.Split("::");
                 foreach (var part in nsParts)
                 {
