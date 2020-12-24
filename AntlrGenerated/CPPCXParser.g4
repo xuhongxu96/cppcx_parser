@@ -39,6 +39,7 @@ idExpression: unqualifiedId | qualifiedId;
 
 unqualifiedId:
 	Identifier
+	| Typeid_
 	| operatorFunctionId
 	| conversionFunctionId
 	| literalOperatorId
@@ -218,7 +219,7 @@ assignmentOperator:
 	| XorAssign
 	| OrAssign;
 
-expression: assignmentExpression (Comma assignmentExpression)*;
+expression: CoAwait? assignmentExpression (Comma assignmentExpression)*;
 
 constantExpression: conditionalExpression;
 /*Statements*/
@@ -641,7 +642,7 @@ virtualSpecifier: Override | Final;
  */
 
 pureSpecifier:
-	Assign val = OctalLiteral {if($val.text.compareTo("0")!=0) throw new InputMismatchException(this);
+	Assign val = OctalLiteral {if($val.text != "0") throw new InputMismatchException(this);
 		};
 /*Derived classes*/
 

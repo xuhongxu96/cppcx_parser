@@ -1,11 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="*.interp" />
+        <None Remove="*.tokens" />
+    </ItemGroup>
+
+    <Target Name="GenerateParser" BeforeTargets="BeforeBuild">
+        <Message Text="Generate Lexer and Parser" Importance="High" />
+        <Exec Command="pwsh gen.ps1" />
+    </Target>
 
 </Project>

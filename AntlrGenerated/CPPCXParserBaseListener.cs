@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from .\CPPCXParser.g4 by ANTLR 4.9
+// Generated from CPPCXParser.g4 by ANTLR 4.9
 
 // Unreachable code detected
 #pragma warning disable 0162
