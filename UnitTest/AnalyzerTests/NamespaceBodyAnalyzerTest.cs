@@ -40,7 +40,7 @@ namespace UnitTest.AnalyzerTests
 
         [Theory]
         [InlineData("data/App.xaml.h", 0, 0, 1)]
-        [InlineData("data/App.xaml.h", 1, 2, 0, 2)]
+        [InlineData("data/App.xaml.h", 1, 3, 0, 2)]
         [InlineData("data/App.xaml.cpp", 0, 0, 0, 0, 16)]
         public void Test(string filename, int option, int expectedVarCount = 0, int expectedClassCount = 0, int expectedFuncDeclCount = 0, int expectedFuncDefCount = 0)
         {

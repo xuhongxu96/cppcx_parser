@@ -84,7 +84,7 @@ namespace cppcx.Core.Analyzers
             }
             else
             {
-                typeDecl = decls[^1];
+                typeDecl = decls[^2];
             }
 
             if (typeDecl.typeSpecifier()?.trailingTypeSpecifier()?.simpleTypeSpecifier() == null)
