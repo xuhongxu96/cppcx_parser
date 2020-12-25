@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime.Misc;
+using Antlr4.Runtime.Tree;
 using cppcx.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace cppcx.Core.Analyzers
 {
-    public class GlobalVariableAnalyzer : CPPCXParserBaseVisitor<IEnumerable<GlobalVariableAnalyzer.GlobalVariable>>
+    public class GlobalVariableAnalyzer
     {
         public class GlobalVariable
         {
@@ -19,7 +20,7 @@ namespace cppcx.Core.Analyzers
             public CPPCXParser.InitializerContext InitContext { get; set; }
         }
 
-        public override IEnumerable<GlobalVariable> VisitSimpleDeclaration([NotNull] CPPCXParser.SimpleDeclarationContext context)
+        public IEnumerable<GlobalVariable> Visit([NotNull] CPPCXParser.SimpleDeclarationContext context)
         {
             var decls = context.declSpecifierSeq()?.declSpecifier();
             if (decls == null) yield break;
@@ -67,17 +68,6 @@ namespace cppcx.Core.Analyzers
                     };
                 }
             }
-        }
-
-        protected override IEnumerable<GlobalVariable> AggregateResult(IEnumerable<GlobalVariable> aggregate, IEnumerable<GlobalVariable> nextResult)
-        {
-            var sameVars = aggregate.Intersect(nextResult);
-            if (sameVars.Any())
-            {
-                throw new Exception($"Duplicated variable names: {sameVars.Select(o => $"{o.Type} {o.Name}").ToArray()}");
-            }
-
-            return aggregate.Union(nextResult);
         }
     }
 }

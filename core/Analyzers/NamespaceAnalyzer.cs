@@ -112,5 +112,12 @@ namespace cppcx.Core.Analyzers
             aggregate.Contexts.AddRange(nextResult.Contexts);
             return aggregate;
         }
+
+        public override Namespace Visit(IParseTree tree)
+        {
+            if (tree is not CPPCXParser.TranslationUnitContext)
+                throw new ArgumentException($"{nameof(tree)} has to be a {nameof(CPPCXParser.TranslationUnitContext)}");
+            return base.Visit(tree);
+        }
     }
 }

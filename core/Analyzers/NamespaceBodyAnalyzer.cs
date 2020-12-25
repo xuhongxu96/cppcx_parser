@@ -162,5 +162,12 @@ namespace cppcx.Core.Analyzers
             aggregate.MergeFrom(nextResult);
             return aggregate;
         }
+
+        public override NamespaceBody Visit(IParseTree tree)
+        {
+            if (tree is not CPPCXParser.DeclarationseqContext)
+                throw new ArgumentException($"{nameof(tree)} has to be a {nameof(CPPCXParser.DeclarationseqContext)}");
+            return base.Visit(tree);
+        }
     }
 }

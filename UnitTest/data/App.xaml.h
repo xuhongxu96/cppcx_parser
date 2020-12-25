@@ -25,7 +25,7 @@ namespace Calculator::App
 
     namespace ApplicationResourceKeys
     {
-        void h();
+        Windows::ApplicationModel::Activation::LaunchActivatedEventArgs^ h(int a, Platform::StringReference b);
     }
 
     /// <summary>
