@@ -3,18 +3,19 @@ using Antlr4.Runtime.Tree;
 using cppcx.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace cppcx.Core.Analyzers
 {
-    public class NamespaceAnalyzer : CPPCXParserBaseListener
+    public class NamespaceAnalyzer : CPPCXParserBaseVisitor<NamespaceAnalyzer.Namespace>
     {
         public class Namespace : IEquatable<Namespace>
         {
             public string Name { get; set; }
-            public CPPCXParser.DeclarationseqContext Context { get; set; }
+            public List<CPPCXParser.DeclarationseqContext> Contexts { get; init; } = new List<CPPCXParser.DeclarationseqContext>();
             public Dictionary<string, Namespace> NestedNamespaces { get; init; } = new Dictionary<string, Namespace>();
             public Namespace Parent { get; set; }
 
@@ -46,25 +47,12 @@ namespace cppcx.Core.Analyzers
             }
         }
 
-        public Namespace Root { get; } = new Namespace { Name = string.Empty };
-
-        private Namespace _current;
-
-        public NamespaceAnalyzer()
+        public override Namespace VisitNamespaceDefinition([NotNull] CPPCXParser.NamespaceDefinitionContext context)
         {
-            _current = Root;
-        }
+            var childNs = VisitChildren(context);
 
-        public Namespace Visit(CPPCXParser.TranslationUnitContext tu)
-        {
-            ParseTreeWalker.Default.Walk(this, tu);
-            return Root;
-        }
-
-        public override void EnterNamespaceDefinition([NotNull] CPPCXParser.NamespaceDefinitionContext context)
-        {
             var qualifiedNs = context.qualifiednamespacespecifier();
-            if (qualifiedNs == null) return;
+            if (qualifiedNs == null) return childNs;
 
             var nsParts = new List<string>();
 
@@ -76,22 +64,53 @@ namespace cppcx.Core.Analyzers
 
             nsParts.Add(qualifiedNs.namespaceName().GetText());
 
+            var res = new Namespace { Name = string.Empty };
+
+            Namespace current = res;
             foreach (var part in nsParts)
             {
-                if (!_current.NestedNamespaces.TryGetValue(part, out var nestedNs))
+                if (!res.NestedNamespaces.TryGetValue(part, out var nestedNs))
                 {
-                    nestedNs = new Namespace { Name = part, Parent = _current };
-                    _current.NestedNamespaces.Add(part, nestedNs);
+                    nestedNs = new Namespace { Name = part, Parent = current };
+                    current.NestedNamespaces.Add(part, nestedNs);
                 }
-                _current = nestedNs;
+                current = nestedNs;
             }
 
-            _current.Context = context.namespaceBody;
+            current.Contexts.Add(context.namespaceBody);
+
+            if (childNs != null)
+            {
+                foreach (var ns in childNs.NestedNamespaces)
+                {
+                    ns.Value.Parent = current;
+                    current.NestedNamespaces.Add(ns.Key, ns.Value);
+                }
+            }
+
+            return res;
         }
 
-        public override void ExitNamespaceDefinition([NotNull] CPPCXParser.NamespaceDefinitionContext context)
+        protected override Namespace AggregateResult(Namespace aggregate, Namespace nextResult)
         {
-            _current = _current.Parent;
+            if (nextResult == null) return aggregate;
+            if (aggregate == null) return nextResult;
+
+            Debug.Assert(aggregate.Name == nextResult.Name);
+
+            var intersectNs = aggregate.NestedNamespaces.Keys.Intersect(nextResult.NestedNamespaces.Keys);
+            foreach (var sameNsName in intersectNs)
+            {
+                AggregateResult(aggregate.NestedNamespaces[sameNsName], nextResult.NestedNamespaces[sameNsName]);
+            }
+            foreach (var nsName in nextResult.NestedNamespaces.Keys.Except(intersectNs))
+            {
+                var ns = nextResult.NestedNamespaces[nsName];
+                aggregate.NestedNamespaces.Add(nsName, ns);
+            }
+
+            aggregate.Contexts.AddRange(nextResult.Contexts);
+            return aggregate;
         }
     }
 }

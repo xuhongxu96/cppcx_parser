@@ -13,8 +13,8 @@ namespace UnitTest.AnalyzerTests
     public class NamespaceAnalyzerTest
     {
         [Theory]
-        [InlineData("data/App.xaml.h", "Calculator::App", "Calculator::App::ApplicationResourceKeys")]
-        [InlineData("data/App.xaml.cpp", "CalculatorApp::ApplicationResourceKeys")]
+        [InlineData("data/App.xaml.h", "Calculator::App,1", "Calculator::App::ApplicationResourceKeys,2")]
+        [InlineData("data/App.xaml.cpp", "CalculatorApp,1", "CalculatorApp::ApplicationResourceKeys,1")]
         public void Test(string filename, params string[] namespaces)
         {
             var tu = CxParser.Parse(filename);
@@ -25,14 +25,16 @@ namespace UnitTest.AnalyzerTests
             foreach (var ns in namespaces)
             {
                 var current = root;
-                var nsParts = ns.Split("::");
+                var parts = ns.Split(',');
+                var nsParts = parts[0].Trim().Split("::");
+                var contextCt = int.Parse(parts[1].Trim());
                 foreach (var part in nsParts)
                 {
                     Assert.Contains(part, current.NestedNamespaces.Keys);
                     current = current.NestedNamespaces[part];
                 }
 
-                Assert.NotNull(current.Context);
+                Assert.Equal(contextCt, current.Contexts.Count);
             }
         }
     }
