@@ -28,8 +28,8 @@ namespace cppcx.Core.Analyzers
         {
             return new Parameter
             {
-                Type = context.declSpecifierSeq().GetText(),
-                Name = context.declarator().GetText().Trim('*', '^', '&'),
+                Type = context.declSpecifierSeq().declSpecifier()[0].GetText(),
+                Name = context.declSpecifierSeq().declSpecifier()[1].GetText().Trim('*', '^', '&'),
             };
         }
 
@@ -40,15 +40,16 @@ namespace cppcx.Core.Analyzers
             var nameAndParms = context.initDeclaratorList().initDeclarator()[0].declarator().pointerDeclarator().noPointerDeclarator();
 
             var name = nameAndParms.noPointerDeclarator().GetText();
-            var parameterDecls = nameAndParms.parametersAndQualifiers();
+            var parameterDecls = nameAndParms.parametersAndQualifiers()?.parameterDeclarationClause()?.parameterDeclarationList()?.parameterDeclaration();
 
             var res = new FunctionDeclaration { Name = name, ReturnType = retType };
+
             if (parameterDecls == null)
             {
                 return res;
             }
 
-            foreach (var parameterDecl in parameterDecls.parameterDeclarationClause().parameterDeclarationList().parameterDeclaration())
+            foreach (var parameterDecl in parameterDecls)
             {
                 res.Parameters.Add(VisitParameterDeclaration(parameterDecl));
             }
