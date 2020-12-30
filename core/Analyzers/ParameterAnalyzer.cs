@@ -1,6 +1,7 @@
 ﻿using Antlr4.Runtime.Misc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +10,18 @@ namespace cppcx.Core.Analyzers
 {
     public class ParameterAnalyzer
     {
+        private static TypedNameAnalyzer _analyzer = new TypedNameAnalyzer();
+
+        [DebuggerDisplay("{TypedName} = {DefaultValue}")]
         public class Parameter
         {
-            public string Type { get; set; }
-            public string Name { get; set; }
+            public TypedNameAnalyzer.TypedName TypedName { get; set; }
             public string DefaultValue { get; set; }
         }
 
         private Parameter VisitParameterDeclaration([NotNull] CPPCXParser.ParameterDeclarationContext context)
         {
-            return new Parameter
-            {
-                Type = context.declSpecifierSeq().declSpecifier()[0].GetText(),
-                Name = context.declSpecifierSeq().declSpecifier()[1].GetText().Trim('*', '^', '&'),
-            };
+            return new Parameter { TypedName = _analyzer.Visit(context.children) };
         }
 
         public List<Parameter> Visit([NotNull] IEnumerable<CPPCXParser.ParameterDeclarationContext> contexts)

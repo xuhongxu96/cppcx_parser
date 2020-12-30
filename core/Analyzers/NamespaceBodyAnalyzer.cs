@@ -79,8 +79,7 @@ namespace cppcx.Core.Analyzers
 
             if (initDecl != null)
             {
-                Debug.Assert(decls.Length == 1, "If it's definition, storage class shouldn't appear");
-                typeDecl = decls[0];
+                typeDecl = decls.Last();
             }
             else
             {

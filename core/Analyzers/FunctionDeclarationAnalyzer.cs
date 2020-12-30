@@ -2,6 +2,7 @@
 using Antlr4.Runtime.Tree;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,10 @@ namespace cppcx.Core.Analyzers
 {
     public class FunctionDeclarationAnalyzer
     {
-        private static ParameterAnalyzer _analyzer = new ParameterAnalyzer();
+        private static ParameterAnalyzer _paramAnalyzer = new ParameterAnalyzer();
+        private static TypedNameAnalyzer _typedNameAnalyzer = new TypedNameAnalyzer();
 
+        [DebuggerDisplay("{ReturnType} {Name} {Parameters}")]
         public class FunctionDeclaration
         {
             public string Name { get; set; }
@@ -21,7 +24,7 @@ namespace cppcx.Core.Analyzers
 
         public FunctionDeclaration Visit([NotNull] CPPCXParser.SimpleDeclarationContext context)
         {
-            var retType = context.declSpecifierSeq().GetText();
+            var retType = _typedNameAnalyzer.VisitFunctionDeclarationReturnType(context);
 
             var nameAndParms = context.initDeclaratorList().initDeclarator()[0].declarator().pointerDeclarator().noPointerDeclarator();
 
@@ -32,7 +35,7 @@ namespace cppcx.Core.Analyzers
             {
                 Name = name,
                 ReturnType = retType,
-                Parameters = parameterDecls == null ? new List<ParameterAnalyzer.Parameter>() : _analyzer.Visit(parameterDecls),
+                Parameters = parameterDecls == null ? new List<ParameterAnalyzer.Parameter>() : _paramAnalyzer.Visit(parameterDecls),
             };
 
             return res;
