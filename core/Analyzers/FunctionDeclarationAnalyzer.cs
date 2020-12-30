@@ -10,27 +10,13 @@ namespace cppcx.Core.Analyzers
 {
     public class FunctionDeclarationAnalyzer
     {
-        public class Parameter
-        {
-            public string Type { get; set; }
-            public string Name { get; set; }
-            public string DefaultValue { get; set; }
-        }
+        private static ParameterAnalyzer _analyzer = new ParameterAnalyzer();
 
         public class FunctionDeclaration
         {
             public string Name { get; set; }
             public string ReturnType { get; set; }
-            public List<Parameter> Parameters { get; init; } = new List<Parameter>();
-        }
-
-        private Parameter VisitParameterDeclaration([NotNull] CPPCXParser.ParameterDeclarationContext context)
-        {
-            return new Parameter
-            {
-                Type = context.declSpecifierSeq().declSpecifier()[0].GetText(),
-                Name = context.declSpecifierSeq().declSpecifier()[1].GetText().Trim('*', '^', '&'),
-            };
+            public List<ParameterAnalyzer.Parameter> Parameters { get; init; } = new List<ParameterAnalyzer.Parameter>();
         }
 
         public FunctionDeclaration Visit([NotNull] CPPCXParser.SimpleDeclarationContext context)
@@ -42,17 +28,12 @@ namespace cppcx.Core.Analyzers
             var name = nameAndParms.noPointerDeclarator().GetText();
             var parameterDecls = nameAndParms.parametersAndQualifiers()?.parameterDeclarationClause()?.parameterDeclarationList()?.parameterDeclaration();
 
-            var res = new FunctionDeclaration { Name = name, ReturnType = retType };
-
-            if (parameterDecls == null)
+            var res = new FunctionDeclaration
             {
-                return res;
-            }
-
-            foreach (var parameterDecl in parameterDecls)
-            {
-                res.Parameters.Add(VisitParameterDeclaration(parameterDecl));
-            }
+                Name = name,
+                ReturnType = retType,
+                Parameters = parameterDecls == null ? new List<ParameterAnalyzer.Parameter>() : _analyzer.Visit(parameterDecls),
+            };
 
             return res;
         }

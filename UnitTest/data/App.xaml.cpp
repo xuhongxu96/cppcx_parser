@@ -83,7 +83,7 @@ App::App()
 #endif
 }
 
-void App::AddWindowToMap(_In_ WindowFrameService ^ frameService)
+void CalculatorApp::App::AddWindowToMap(_In_ WindowFrameService ^ frameService)
 {
     reader_writer_lock::scoped_lock lock(m_windowsMapLock);
     m_secondaryWindows[frameService->GetViewId()] = frameService;
